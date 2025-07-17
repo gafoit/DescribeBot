@@ -10,8 +10,10 @@ logging.basicConfig(level=logging.INFO)
 
 dp.include_router(start.router)
 dp.include_router(about_us.router)
-dp.include_router(anything.router)
 dp.include_router(modes.router)
+
+# Этот должен идти последним бл*!#
+dp.include_router(anything.router)
 
 
 async def on_startup():
