@@ -6,10 +6,10 @@ router = Router()
 
 project_name = ('Разработка программной поддержки формирования и улучшения навыков ментальной арифметики и когнитивных '
                 'процессов человека')
-msg_text = f'Привет, я бот проекта <blockquote>{project_name}</blockquote>'
+msg_text = f'Привет, я бот проекта <blockquote>{project_name}</blockquote>\nНиже можете найти меню для поиска нужной информации о проекте'
 
 
 @router.message(F.text.in_({"/start", "🔙 В Меню"}))
 async def cmd_start(message: types.Message):
-    await message.answer_photo(types.FSInputFile("Bot/assets/Mental_Icon.png"), msg_text,
+    await message.answer_photo(types.FSInputFile("Bot/assets/Cool_mental_logo.png"), msg_text,
                                reply_markup=main_menu_keyboard(), parse_mode="HTML")
