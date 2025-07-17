@@ -1,3 +1,4 @@
+import asyncio
 import logging
 from aiohttp import web
 from aiogram.webhook.aiohttp_server import SimpleRequestHandler, setup_application
@@ -34,4 +35,7 @@ async def create_app():
 
 
 if __name__ == "__main__":
-    web.run_app(create_app(), port=8000)
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+    app = loop.run_until_complete(create_app())
+    web.run_app(app, port=8000)

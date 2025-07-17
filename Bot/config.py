@@ -6,5 +6,5 @@ WEBHOOK_SECRET = os.getenv("WEBHOOK_SECRET", "supersecret")
 BASE_WEBHOOK_URL = os.getenv("BASE_WEBHOOK_URL",
                              "https://describebot.onrender.com")  # например, https://your-domain.com
 WEBHOOK_URL = f"{BASE_WEBHOOK_URL}{WEBHOOK_PATH}"
-print(WEBHOOK_URL)
+
 ADMIN_ID = os.getenv("ADMIN_ID", None)
