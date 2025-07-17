@@ -4,13 +4,14 @@ from aiohttp import web
 from aiogram.webhook.aiohttp_server import SimpleRequestHandler, setup_application
 from Bot.bot import bot, dp
 from Bot import config
-from Bot.handlers import start, about_us, anything
+from Bot.handlers import start, about_us, anything, modes
 
 logging.basicConfig(level=logging.INFO)
 
 dp.include_router(start.router)
 dp.include_router(about_us.router)
 dp.include_router(anything.router)
+dp.include_router(modes.router)
 
 
 async def on_startup():
