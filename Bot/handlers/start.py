@@ -9,7 +9,7 @@ project_name = ('Разработка программной поддержки 
 msg_text = f'Привет, я бот проекта <blockquote>{project_name}</blockquote>'
 
 
-@router.message(F.text in ["/start", "🔙 В Меню"])
+@router.message(F.text.in_({"/start", "🔙 В Меню"}))
 async def cmd_start(message: types.Message):
-    await message.answer_photo(types.FSInputFile("Bot/assets/Cool_mental_logo.png"),msg_text, reply_markup=main_menu_keyboard(), parse_mode="HTML")
-
+    await message.answer_photo(types.FSInputFile("Bot/assets/Cool_mental_logo.png"), msg_text,
+                               reply_markup=main_menu_keyboard(), parse_mode="HTML")
