@@ -38,5 +38,13 @@ async def create_app():
 
 
 if __name__ == "__main__":
-    # web.run_app(create_app(), port=8000)
-    asyncio.run(create_app()).run_app(port=8000)
+    import asyncio
+    from aiohttp import web
+
+
+    async def main():
+        app = await create_app()
+        web.run_app(app, port=8000)
+
+
+    asyncio.run(main())
