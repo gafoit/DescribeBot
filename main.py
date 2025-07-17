@@ -41,10 +41,5 @@ if __name__ == "__main__":
     import asyncio
     from aiohttp import web
 
-
-    async def main():
-        app = await create_app()
-        web.run_app(app, port=8000)
-
-
-    asyncio.run(main())
+    app = asyncio.run(create_app())
+    web.run_app(app, port=8000)
