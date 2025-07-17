@@ -7,6 +7,6 @@ router = Router()
 text = 'Раздел модулей приложения. Выберите интересующий чтобы узнать больше.'
 
 
-@router.message(F.text.contains("Модули проекта"))
+@router.message(F.text=="🔡 Модули проекта")
 async def mode_handler(message: types.Message):
     await message.answer(text, reply_markup=modes_keyboard())
