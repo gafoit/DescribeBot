@@ -1,6 +1,8 @@
 from aiogram import Router, types
 from aiogram import F
-from Bot.keyborads.modes import modes_keyboard
+# from Bot.keyborads.modes import modes_keyboard
+from Bot.keyborads.back import back_keyboard
+from Bot.keyborads.modes import modes_keyboard, inline_modes_keyboard
 
 router = Router()
 
@@ -9,7 +11,8 @@ text = 'Раздел модулей приложения. Выберите ин�
 
 @router.message(F.text == "🔡 Модули проекта")
 async def mode_handler(message: types.Message):
-    await message.answer(text, reply_markup=modes_keyboard())
+    await message.answer(text, reply_markup=inline_modes_keyboard())
+    await message.answer(text, reply_markup=back_keyboard())
 
 
 @router.message(F.text == "🟠 Ментальная Арифметика")
