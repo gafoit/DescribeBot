@@ -6,13 +6,12 @@ from Bot.keyborads.modes import modes_keyboard, inline_modes_keyboard
 
 router = Router()
 
-text = 'Раздел модулей приложения. Выберите интересующий чтобы узнать больше.'
-
 
 @router.message(F.text == "🔡 Модули проекта")
 async def mode_handler(message: types.Message):
-    await message.answer(text, reply_markup=inline_modes_keyboard())
-    await message.answer('', reply_markup=back_keyboard())
+    await message.answer('Статьи про модули приложений', reply_markup=inline_modes_keyboard())
+    await message.answer('Выше можно перейти к статьям про модули приложения.', reply_markup=back_keyboard())
+    await message.delete()
 
 
 @router.message(F.text == "🟠 Ментальная Арифметика")
