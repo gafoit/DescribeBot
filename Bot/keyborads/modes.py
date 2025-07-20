@@ -17,7 +17,8 @@ def modes_keyboard():
 
 def inline_modes_keyboard():
     buttons = [
-        [InlineKeyboardButton(text='🟠 Ментальная Арифметика', url="https://telegra.ph/Mentalnaya-arifmetika-07-18"),
+        [InlineKeyboardButton(text='🟠 Ментальная Арифметика',
+                              url="https://telegra.ph/Rezhim-Formuly-dlya-mentalnoj-arifmetiki-07-20"),
          InlineKeyboardButton(text='🟠 Общий счёт', url="https://telegra.ph/Mentalnaya-arifmetika-07-18")],
         [InlineKeyboardButton(text="🟣 Концентрация", url="https://telegra.ph/Mentalnaya-arifmetika-07-18")],
         [InlineKeyboardButton(text="🟠 Найди пару", url="https://telegra.ph/Mentalnaya-arifmetika-07-18"),
