@@ -2,7 +2,7 @@ import os
 
 TOKEN = os.getenv("BOT_TOKEN")
 WEBHOOK_PATH = "/webhook"
-WEBHOOK_SECRET = os.getenv("WEBHOOK_SECRET", "supersecret")
+WEBHOOK_SECRET = os.getenv("WEBHOOK_SECRET")
 BASE_WEBHOOK_URL = os.getenv("BASE_WEBHOOK_URL",
                              "https://describebot.onrender.com")  # например, https://your-domain.com
 WEBHOOK_URL = f"{BASE_WEBHOOK_URL}{WEBHOOK_PATH}"
