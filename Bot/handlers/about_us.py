@@ -3,9 +3,7 @@ import os
 
 from aiogram import Router, types
 from aiogram import F
-from aiogram.utils import media_group
-from Bot.keyborads.about_us import inline_about_us_keyboard
-from Bot.keyborads.back import back_keyboard
+from Bot.keyborads.about_us import about_us_keyboard
 from aiogram.utils.media_group import MediaGroupBuilder
 
 router = Router()
@@ -20,7 +18,7 @@ about_us_text = "О нас.\n\n" \
                 "<i>Ступников Даниил Игоревич</i>\n" \
                 'Студент 4 курса КемГУ по направлению "Прикладная математика и информатика".\n' \
                 "Главный программист проекта во всех направлениях, от Desktop-приложений до Telegram-ботов и Web-программирования\n\n"
-back_text = "Выше можно найти наши контакты для связи."
+back_text = "Ниже можно найти наши контакты для связи."
 
 
 @router.message(F.text == "©️ О нас")
@@ -34,15 +32,18 @@ async def about_us(message: types.Message):
         caption=about_us_text
     )
 
-    # Отправляем с клавиатурой
-    messages = await message.answer_media_group(
-        media=builder.build(),
-        reply_markup=inline_about_us_keyboard()
+    await message.answer_media_group(
+        media=builder.build()
     )
 
-    await message.answer(back_text, parse_mode="HTML", reply_markup=back_keyboard())
+    await message.answer(back_text, parse_mode="HTML", reply_markup=about_us_keyboard())
 
 
-@router.callback_query(F.data.startswith("Anny"))
+@router.message(F.text == "Долбня Анна")
 async def AnnyHandler(message: types.Message):
-    logging.info('Callback работает')
+    logging.info('Callback работает, это Аня')
+
+
+@router.message(F.text == "Ступников Даниил")
+async def GftHandler(message: types.Message):
+    logging.info('Callback работает, это Даня')
