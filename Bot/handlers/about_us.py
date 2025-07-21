@@ -6,6 +6,7 @@ from aiogram import F
 from aiogram.utils import media_group
 from Bot.keyborads.about_us import inline_about_us_keyboard
 from Bot.keyborads.back import back_keyboard
+from aiogram.utils.media_group import MediaGroupBuilder
 
 router = Router()
 logging.basicConfig(level=logging.INFO)
@@ -27,9 +28,9 @@ async def about_us(message: types.Message):
     await message.delete()
 
     builder = MediaGroupBuilder()
-    builder.add_photo(media=FSInputFile(os.getcwd() + "/Bot/assets/MyLoveAnny.jpg"))
+    builder.add_photo(media=types.FSInputFile(os.getcwd() + "/Bot/assets/MyLoveAnny.jpg"))
     builder.add_photo(
-        media=FSInputFile(os.getcwd() + "/Bot/assets/MyMe.jpg"),
+        media=types.FSInputFile(os.getcwd() + "/Bot/assets/MyMe.jpg"),
         caption=about_us_text
     )
 
