@@ -24,14 +24,22 @@ back_text = "Выше можно найти наши контакты для с�
 
 @router.message(F.text == "©️ О нас")
 async def about_us(message: types.Message):
-    msg = await message.answer_media_group(
-        media_group.MediaGroupBuilder(
-            [types.InputMediaPhoto(media=types.FSInputFile(os.getcwd() + "/Bot/assets/MyLoveAnny.jpg")),
-             types.InputMediaPhoto(media=types.FSInputFile(os.getcwd() + "/Bot/assets/MyMe.jpg"))],
-            caption=about_us_text).build())
-    await msg[-1].edit_reply_markup(reply_markup=inline_about_us_keyboard())
-    await message.answer(back_text, parse_mode="HTML", reply_markup=back_keyboard())
     await message.delete()
+
+    builder = MediaGroupBuilder()
+    builder.add_photo(media=FSInputFile(os.getcwd() + "/Bot/assets/MyLoveAnny.jpg"))
+    builder.add_photo(
+        media=FSInputFile(os.getcwd() + "/Bot/assets/MyMe.jpg"),
+        caption=about_us_text
+    )
+
+    # Отправляем с клавиатурой
+    messages = await message.answer_media_group(
+        media=builder.build(),
+        reply_markup=inline_about_us_keyboard()
+    )
+
+    await message.answer(back_text, parse_mode="HTML", reply_markup=back_keyboard())
 
 
 @router.callback_query(F.data.startswith("Anny"))
