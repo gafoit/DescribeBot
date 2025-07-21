@@ -1,3 +1,5 @@
+import os
+
 from aiogram import Router, types
 from random import randint as rng
 from aiogram import F
@@ -8,7 +10,7 @@ router = Router()
 
 def get_photo_url():
     data = []
-    with open("/Bot/handlers/about_project_pics.txt", 'r') as f:
+    with open(os.getcwd()+"/Bot/handlers/about_project_pics.txt", 'r') as f:
         data = f.readlines()
     return data[rng(0, len(data) - 1)]
 
