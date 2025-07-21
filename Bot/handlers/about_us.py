@@ -4,7 +4,10 @@ from Bot.keyborads.back import back_keyboard
 
 router = Router()
 
-about_us_text = 'Текст раздела "О нас"'
+about_us_text = """
+О нас.
+
+"""
 
 
 @router.message(F.text == "©️ О нас")
