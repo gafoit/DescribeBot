@@ -25,7 +25,7 @@ contact_gft = "*Контакты Даниила*:\n\n" \
               "Телеграм: @First_gafoit"
 contact_Anny = "*Контакты Анны*:\n\n" \
                "Почта: `anna171613iq@gmail.com`\n" \
-               "Телеграм: @Annettka_5_for_love_5"
+               "Телеграм: @Annettka\_5\_for\_love\_5"
 
 
 @router.message(F.text == "©️ О нас")
