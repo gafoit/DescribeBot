@@ -1,24 +1,23 @@
 import os
 
 from aiogram import Router, types
-from random import randint as rng
 from aiogram import F
 from Bot.keyborads.back import back_keyboard
 
 router = Router()
 
 
-def get_photo_url():
+def get_photo_url(user_id):
     data = []
-    with open(os.getcwd()+"/Bot/handlers/about_project_pics.txt", 'r') as f:
+    with open(os.getcwd() + "/Bot/handlers/about_project_pics.txt", 'r') as f:
         data = f.readlines()
-    return data[rng(0, len(data) - 1)]
+    return data[user_id % 4]
 
 
 @router.message(F.text == "ℹ️ О проекте")
 async def about_project(message: types.Message):
     await message.answer_photo(
-        photo=types.URLInputFile(get_photo_url()),
+        photo=types.URLInputFile(get_photo_url(message.from_user.id)),
         caption="<b>О проекте</b>\n\n"
                 "В мире цифровых технологий очень важно уметь обрабатывать гигантский объем информации, "
                 "проходящий через нас ежедневно.\n\n"
