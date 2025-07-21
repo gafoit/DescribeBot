@@ -8,7 +8,7 @@ router = Router()
 
 def get_photo_url():
     data = []
-    with open("about_project_pics.txt", 'r') as f:
+    with open("/Bot/handlers/about_project_pics.txt", 'r') as f:
         data = f.readlines()
     return data[rng(0, len(data) - 1)]
 
