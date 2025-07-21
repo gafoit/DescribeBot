@@ -11,7 +11,7 @@ def get_photo_url(user_id):
     data = []
     with open(os.getcwd() + "/Bot/handlers/about_project_pics.txt", 'r') as f:
         data = f.readlines()
-    return data[user_id % 4]
+    return data[user_id % len(data)]
 
 
 @router.message(F.text == "ℹ️ О проекте")
