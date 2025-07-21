@@ -13,7 +13,7 @@ about_us_text = "О нас.\n\n" \
                 "<i>Долбня Анна Панагиотисовна</i>\n" \
                 'Студентка 4 курса КемГУ по направлению "Прикладная математика и информатика".\n' \
                 "Идейный вдохновитель проекта.\n\n" \
-                "<b>Программист проекта</b>" \
+                "<b>Программист проекта</b>\n" \
                 "<i>Ступников Даниил Игоревич</i>\n" \
                 'Студент 4 курса КемГУ по направлению "Прикладная математика и информатика".\n' \
                 "Главный программист проекта во всех направлениях, от Desktop-приложений до Telegram-ботов и Web-программирования\n\n"
@@ -27,8 +27,8 @@ async def about_us(message: types.Message):
             [types.InputMediaPhoto(media=types.FSInputFile(os.getcwd() + "/Bot/assets/MyLoveAnny.jpg")),
              types.InputMediaPhoto(media=types.FSInputFile(os.getcwd() + "/Bot/assets/MyMe.jpg"))],
             caption=about_us_text).build(),
-        reply_markup=inline_about_us_keyboard())
-    await message.answer(back_text, parse_mode="HTML", reply_markup=back_keyboard())
+        reply_markup=back_keyboard())
+    await message.answer(back_text, parse_mode="HTML", reply_markup=inline_about_us_keyboard())
     await message.delete()
 
 
