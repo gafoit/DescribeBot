@@ -20,12 +20,12 @@ about_us_text = "О нас.\n\n" \
                 "Главный программист проекта во всех направлениях, от Desktop-приложений до Telegram-ботов и Web-программирования\n\n"
 back_text = "Ниже можно найти наши контакты для связи."
 
-contact_gft = "*Контакты Даниила*\n\n" \
+contact_gft = "*Контакты Даниила*:\n\n" \
               "Почта: `daniilgafoit@gmail.com`\n" \
-              "Телеграм: `@First_gafoit`"
-contact_Anny = "*Контакты Анны*\n\n" \
+              "Телеграм: @First_gafoit"
+contact_Anny = "*Контакты Анны*:\n\n" \
                "Почта: `anna171613iq@gmail.com`\n" \
-               "Телеграм: `@Annettka_5_for_love_5`"
+               "Телеграм: @Annettka_5_for_love_5"
 
 
 @router.message(F.text == "©️ О нас")

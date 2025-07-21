@@ -2,7 +2,7 @@ from aiogram import Router, types
 from aiogram import F
 
 from Bot.keyborads.back import back_keyboard
-from Bot.keyborads.modes import modes_keyboard, inline_modes_keyboard
+from Bot.keyborads.modes import inline_modes_keyboard
 
 router = Router()
 

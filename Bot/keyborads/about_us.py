@@ -1,4 +1,4 @@
-from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup, KeyboardButton
+from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 
 
 def about_us_keyboard():
@@ -6,4 +6,4 @@ def about_us_keyboard():
         [KeyboardButton(text="Долбня Анна"), KeyboardButton(text="Ступников Даниил")],
         [KeyboardButton(text="🔙 В Меню")]
     ]
-    return ReplyKeyboardMarkup(keyboard=buttons)
+    return ReplyKeyboardMarkup(keyboard=buttons, resize_keyboard=True, one_time_keyboard=True)

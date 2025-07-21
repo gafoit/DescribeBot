@@ -16,6 +16,7 @@ def get_photo_url(user_id):
 
 @router.message(F.text == "ℹ️ О проекте")
 async def about_project(message: types.Message):
+    await message.delete()
     await message.answer_photo(
         photo=types.URLInputFile(get_photo_url(message.from_user.id)),
         caption="<b>О проекте</b>\n\n"
