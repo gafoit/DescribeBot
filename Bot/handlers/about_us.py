@@ -19,7 +19,7 @@ about_us_text = "О нас.\n\n" \
                 "<i>Ступников Даниил Игоревич</i>\n" \
                 'Студент 4 курса КемГУ по направлению "Прикладная математика и информатика".\n' \
                 "Главный программист проекта во всех направлениях, от Desktop-приложений до Telegram-ботов и Web-программирования\n\n"
-back_text = "Ниже можно найти наши контакты для связи."
+back_text = "Выше можно найти наши контакты для связи."
 
 
 @router.message(F.text == "©️ О нас")
@@ -29,8 +29,8 @@ async def about_us(message: types.Message):
             [types.InputMediaPhoto(media=types.FSInputFile(os.getcwd() + "/Bot/assets/MyLoveAnny.jpg")),
              types.InputMediaPhoto(media=types.FSInputFile(os.getcwd() + "/Bot/assets/MyMe.jpg"))],
             caption=about_us_text).build())
-    await msg[0].edit_reply_markup(reply_markup=back_keyboard())
-    await message.answer(back_text, parse_mode="HTML", reply_markup=inline_about_us_keyboard())
+    await msg[0].edit_reply_markup(reply_markup=inline_about_us_keyboard())
+    await message.answer(back_text, parse_mode="HTML", reply_markup=back_keyboard())
     await message.delete()
 
 
