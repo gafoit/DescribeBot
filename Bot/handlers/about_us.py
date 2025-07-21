@@ -1,3 +1,4 @@
+import logging
 import os
 
 from aiogram import Router, types
@@ -7,6 +8,7 @@ from Bot.keyborads.about_us import inline_about_us_keyboard
 from Bot.keyborads.back import back_keyboard
 
 router = Router()
+logging.basicConfig(level=logging.INFO)
 
 about_us_text = "О нас.\n\n" \
                 "<b>Глава проекта</b>\n" \
@@ -26,12 +28,13 @@ async def about_us(message: types.Message):
         media_group.MediaGroupBuilder(
             [types.InputMediaPhoto(media=types.FSInputFile(os.getcwd() + "/Bot/assets/MyLoveAnny.jpg")),
              types.InputMediaPhoto(media=types.FSInputFile(os.getcwd() + "/Bot/assets/MyMe.jpg"))],
-            caption=about_us_text).build(),
-        reply_markup=back_keyboard())
+            caption=about_us_text).build())
     await message.answer(back_text, parse_mode="HTML", reply_markup=inline_about_us_keyboard())
+    msg = await message.answer("Техническое сообщение. Если вы это видели, развидьте", reply_markup=back_keyboard())
+    await msg.delete()
     await message.delete()
 
 
 @router.callback_query(F.data.startswith("Anny"))
 async def AnnyHandler(message: types.Message):
-    print('Callback работает')
+    logging.info('Callback работает')
